@@ -1,0 +1,55 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   min-height: 100vh;
+   overflow-x: hidden;
+
+   p{
+    margin-bottom: 0;
+   }
+
+   .container_sidebar{
+    max-width: 17.5rem;
+   }
+
+   .row, .col, .container-fluid, .row>*{
+    margin: 0;
+    padding: 0;
+   }
+
+   .h-screen{
+    height: 100vh;
+   }
+   .h-full{
+    height: 100%;
+   }
+
+   .w-1\/2{
+    width: 50%;
+   }
+
+   .w-full{
+    width: 100%;
+   }
+
+
+
+   .text-sm{
+    font-size: small;
+   }
+
+   .font-bold{
+    font-weight: bold;
+   }
+
+}
+
+#chart-defaulters-x-revenues{
+    width: 100%!important;
+    height: 400px!important;
+   
+}
