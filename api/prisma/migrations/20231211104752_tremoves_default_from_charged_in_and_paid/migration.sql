@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "invoices" ALTER COLUMN "chargedIn" DROP DEFAULT,
+ALTER COLUMN "paidAt" DROP DEFAULT;
