@@ -1,3 +1,5 @@
+"use client"
+
 import { BodyBluredOverlay } from "@/components/BodyBluredOverlay"
 import { IoIosCloseCircleOutline } from "react-icons/io"
 import { twMerge } from "tailwind-merge"
@@ -23,7 +25,10 @@ export const FiltersModal = ({ isOpen, handleClose }: Props) => {
       >
         <div className=" grid grid-cols-2 mb-6">
           <h3 className="font-semibold text-lg">FILTROS</h3>
-          <IoIosCloseCircleOutline className="w-8 h-8 hover:cursor-pointer ml-auto " />
+          <IoIosCloseCircleOutline
+            className="w-8 h-8 hover:cursor-pointer ml-auto "
+            onClick={handleClose}
+          />
         </div>
 
         <div className="grid grid-cols-2 items-center">
