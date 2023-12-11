@@ -1,10 +1,12 @@
+// Status:
+// 1 = Emitida;
+// 2 = Cobrança realizada;
+// 3 = Pagamento em atraso;
+// 4 = Pagamento realizado
+
 export type Invoice = {
-  payerName: string
-  status:
-    | "Emitida"
-    | "Cobrança realizada"
-    | "Pagamento em atraso"
-    | "Pagamento realizado"
+  payer_name: string
+  status: 1 | 2 | 3 | 4
   identification: string
   value: number
   createdAt: Date
@@ -13,8 +15,32 @@ export type Invoice = {
   bankSlip: string
   nfIdentification: string
 }
+
+// /all-invoices
 export type ListOfInvoices = {
-  month: string
-  totalInMonth: number
-  invoices: Invoice[]
-}[]
+  data:
+    | {
+        month: string
+        totalInMonth: number
+        invoices: Invoice[]
+      }[]
+    | undefined
+}
+
+// /year-summary
+export type YearSummary = {
+  data:
+    | {
+        totalRevenue: number
+        confirmedPayments: number
+        futureProjection: number
+        pendingCharges: number
+        defaulters: number
+        byMonth: {
+          month: string
+          confirmedValues: number
+          defaulterValues: number
+        }[]
+      }
+    | undefined
+}
