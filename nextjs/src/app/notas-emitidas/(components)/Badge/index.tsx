@@ -2,31 +2,47 @@ import { Invoice } from "@/@types/dto"
 import { twMerge } from "tailwind-merge"
 
 type Props = {
-    status: Invoice["status"]
+  status: Invoice["status"]
 }
 
-export const Badge = ({status}: Props) => {
+export const Badge = ({ status }: Props) => {
+  let statusText = ""
+
+  switch (status) {
+    case 1:
+      statusText = "Emitida"
+      break
+    case 2:
+      statusText = "Cobrança realizada"
+      break
+    case 3:
+      statusText = "Pagamento em atraso"
+      break
+    case 4:
+      statusText = "Pagamento realizado"
+      break
+  }
 
   return (
     <div
       className={twMerge(
         "bg-green-400 rounded-full w-fit px-2 py-1 text-xs",
-        status === "Emitida" && "bg-gray-400",
-        status === "Cobrança realizada" && "bg-yellow-400",
-        status === "Pagamento realizado" && "bg-green-400",
-        status === "Pagamento em atraso" && "bg-red-400"
+        status === 1 && "bg-gray-400",
+        status === 2 && "bg-yellow-400",
+        status === 3 && "bg-red-400",
+        status === 4 && "bg-green-400"
       )}
     >
       <p
         className={twMerge(
           "font-bold",
-          status === "Emitida" && "text-gray-900",
-          status === "Cobrança realizada" && "text-yellow-900",
-          status === "Pagamento realizado" && "text-green-900",
-          status === "Pagamento em atraso" && "text-red-900"
+          status === 1 && "text-gray-900",
+          status === 2 && "text-yellow-900",
+          status === 3 && "text-red-900",
+          status === 4 && "text-green-900"
         )}
       >
-        {status}
+        {statusText}
       </p>
     </div>
   )

@@ -3,22 +3,26 @@ import { CurrencyText } from "@/components/CurrencyText"
 import { format } from "date-fns"
 import { Badge } from "../Badge"
 
-type Props = Invoice
-export const InvoiceCard = ({
-  payerName,
-  status,
-  identification,
-  value,
-  createdAt,
-  nfIdentification,
-  chargedIn,
-  paidAt,
-  bankSlip,
-}: Props) => {
+type Props = { invoice: Invoice }
+export const InvoiceCard = ({ invoice }: Props) => {
+  const {
+    payer_name,
+    bankSlip,
+    chargedIn,
+    createdAt,
+    identification,
+    nfIdentification,
+    paidAt,
+    status,
+    value,
+  } = invoice
+
+
+
   return (
     <section className="mt-4 text-sm text-gray-800 border-b-1 pb-4">
       <div className="flex items-center gap-3">
-        <p className="font-bold">{payerName}</p>
+        <p className="font-bold">{payer_name}</p>
         <Badge status={status} />
       </div>
 
@@ -35,7 +39,7 @@ export const InvoiceCard = ({
 
         <div className="border-r-1 pr-2">
           <p className="font-semibold text-xs">Emissão</p>
-          <p>{format(createdAt, "dd/MM/yyy")}</p>
+          <p>{format(new Date(createdAt), "dd/MM/yyy")}</p>
         </div>
 
         <div className="border-r-1 pr-2">
@@ -45,12 +49,14 @@ export const InvoiceCard = ({
 
         <div className="border-r-1 pr-2">
           <p className="font-semibold text-xs">Cobrança</p>
-          <p>{chargedIn ? format(chargedIn, "dd/MM/yyyy") : "Pendente"}</p>
+          <p>
+            {chargedIn ? format(new Date(chargedIn), "dd/MM/yyyy") : "Pendente"}
+          </p>
         </div>
 
         <div className="border-r-1 pr-2">
           <p className="font-semibold text-xs">Pagamento</p>
-          <p>{paidAt ? format(paidAt, "dd/MM/yyyy") : "Pendente"}</p>
+          <p>{paidAt ? format(new Date(paidAt), "dd/MM/yyyy") : "Pendente"}</p>
         </div>
         <div>
           <p className="font-semibold text-xs">Boleto</p>
