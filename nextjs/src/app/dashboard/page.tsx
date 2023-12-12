@@ -66,6 +66,8 @@ export default async function DashboardPage() {
                     .reverse() ?? [],
                 borderColor: "#00308F",
                 backgroundColor: "#00308F",
+                tension: 0.1,
+                radius: 3
               },
             ]}
           />
@@ -84,6 +86,8 @@ export default async function DashboardPage() {
                     .reverse() ?? [],
                 borderColor: "#800000",
                 backgroundColor: "#800000",
+                tension: 0.1,
+                radius: 3
               },
             ]}
           />

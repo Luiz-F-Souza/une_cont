@@ -26,7 +26,7 @@ export const Badge = ({ status }: Props) => {
   return (
     <div
       className={twMerge(
-        "bg-green-400 rounded-full w-fit px-2 py-1 text-xs",
+        "bg-green-400 rounded-full min-w-max px-2 py-1 text-xs ",
         status === 1 && "bg-gray-400",
         status === 2 && "bg-yellow-400",
         status === 3 && "bg-red-400",

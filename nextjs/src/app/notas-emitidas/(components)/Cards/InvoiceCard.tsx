@@ -21,8 +21,8 @@ export const InvoiceCard = ({ invoice }: Props) => {
 
   return (
     <section className="mt-4 text-sm text-gray-800 border-b-1 pb-4">
-      <div className="flex items-center gap-3">
-        <p className="font-bold">{payer_name}</p>
+      <div className="flex items-center gap-3 ">
+        <p className="font-bold line-clamp-1">{payer_name}</p>
         <Badge status={status} />
       </div>
 
