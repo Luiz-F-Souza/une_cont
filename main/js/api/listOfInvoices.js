@@ -1,6 +1,6 @@
 export const getListOfInvoices = async () => {
 
-    const request = new Request("http://localhost:8888/all-invoices",{
+    const request = new Request("http://146.190.40.76:8888/all-invoices",{
         method: "GET",
         headers: {
           "Content-Type": "application/json",

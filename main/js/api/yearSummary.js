@@ -1,7 +1,7 @@
 import { formatCurrency } from "../utils/formatCurrency.js"
 
 export const getYearSummary = async () => {
-  const request = new Request("http://localhost:8888/year-summary", {
+  const request = new Request("http://146.190.40.76:8888/year-summary", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
