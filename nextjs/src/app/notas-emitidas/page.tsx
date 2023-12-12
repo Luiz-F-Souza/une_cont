@@ -4,12 +4,110 @@ import { CurrencyText } from "@/components/CurrencyText"
 import { Filters } from "./(components)/Filters"
 import { captalize } from "@/utils/captalize"
 import { getListOfInvoices } from "@/apiCalls/invoices"
+import { checkIfHasFilter, checkNestedMonthItems, checkNestedYear } from "./utils/filters"
 
+type Props = {
+  searchParams: {
+    ano: string
+    cobrado: string
+    emissao: string
+    "pago-em": string
+    status: string
+  }
+}
 
-export default async function InvoicesPage() {
+export const listOfMonths = [
+  "janeiro",
+  "fevereiro",
+  "março",
+  "abril",
+  "maio",
+  "junho",
+  "julho",
+  "agosto",
+  "setembro",
+  "outubro",
+  "novembro",
+  "dezembro",
+]
 
-
+export default async function InvoicesPage({ searchParams }: Props) {
   const { listOfInvoices } = await getListOfInvoices()
+
+  const filteredListOfInvoices = listOfInvoices?.filter((group) => {
+    const { hasFilterActive: hasCreatedAtFilter, index: createdAtIndex } =
+      checkIfHasFilter(searchParams.emissao)
+
+    // CREATED AT
+    if (hasCreatedAtFilter) {
+      if (listOfMonths[createdAtIndex] !== group.month) return false
+    }
+
+    // CHARGED AT
+    const { hasFilterActive: hasChargedAtFilter, index: chargedAtIndex } =
+      checkIfHasFilter(searchParams.cobrado)
+
+    if (hasChargedAtFilter) {
+      const chargedAtFilterResult = checkNestedMonthItems({
+        object: group,
+        propertyToCheck: "chargedIn",
+        value: chargedAtIndex,
+      })
+
+      if (!chargedAtFilterResult) return false
+    }
+
+    // PAID AT
+    const { hasFilterActive: hasPaidAtFilter, index: paidAtIndex } =
+      checkIfHasFilter(searchParams["pago-em"])
+
+    if (hasPaidAtFilter) {
+      const paidAtFilterResult = checkNestedMonthItems({
+        object: group,
+        propertyToCheck: "paidAt",
+        value: paidAtIndex,
+      })
+
+      if (!paidAtFilterResult) return false
+    }
+
+    // YEAR
+    const { hasFilterActive: hasYearFilter } =
+      checkIfHasFilter(searchParams.ano)
+
+    if (hasYearFilter) {
+      const paidAtFilterResult = checkNestedYear({
+        object: group,
+        propertyToCheck: "createdAt",
+        value: Number(searchParams.ano),
+      })
+
+      if (!paidAtFilterResult) return false
+    }
+
+    // STATUS
+    const statusFilter = Number(searchParams.status)
+
+    const hasStatusFilter = statusFilter > 0
+    if (hasStatusFilter) {
+      const filtered = group.invoices.filter((invoice) => {
+        const currentStatus = invoice.status
+
+        if (currentStatus !== statusFilter) return false
+
+        return true
+      })
+
+      group.invoices = filtered
+
+      const hasNoItems = filtered.length === 0
+
+      if (hasNoItems) return false
+    }
+
+    return true
+  })
+
   return (
     <section className="px-4 py-8 text-gray-800">
       <div className="flex items-center justify-between gap-2">
@@ -22,7 +120,7 @@ export default async function InvoicesPage() {
       </div>
 
       <article className="mt-8">
-        {listOfInvoices?.map((month) => {
+        {filteredListOfInvoices?.map((month) => {
           return (
             <section key={month.month} className="mt-12">
               <h3 className="font-bold text-gray-800">

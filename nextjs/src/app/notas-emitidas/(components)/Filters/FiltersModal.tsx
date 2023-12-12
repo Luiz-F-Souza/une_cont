@@ -70,11 +70,14 @@ export const FiltersModal = ({ isOpen, handleClose }: Props) => {
             onChange={(e) => {
               handlePushQuery("ano", e.currentTarget.value)
             }}
-            value={searchParams.get("ano") ?? "all"}
+            value={searchParams.get("ano") ?? "0"}
           >
-            <option value="all">Todos</option>
+            <option value="0">Todos</option>
             <option value={2023}>2023</option>
             <option value={2022}>2022</option>
+            <option value={2021}>2021</option>
+            <option value={2020}>2020</option>
+            <option value={2019}>2019</option>
           </select>
         </div>
 
@@ -85,11 +88,21 @@ export const FiltersModal = ({ isOpen, handleClose }: Props) => {
             onChange={(e) => {
               handlePushQuery("emissao", e.currentTarget.value)
             }}
-            value={searchParams.get("emissao") ?? "all"}
+            value={searchParams.get("emissao") ?? "0"}
           >
-            <option value="all">Todos</option>
-            <option value="dez">Dezembro</option>
-            <option value="nov">Novembro</option>
+            <option value="0">Todos</option>
+            <option value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
           </select>
         </div>
 
@@ -100,11 +113,21 @@ export const FiltersModal = ({ isOpen, handleClose }: Props) => {
             onChange={(e) => {
               handlePushQuery("cobrado", e.currentTarget.value)
             }}
-            value={searchParams.get("cobrado") ?? "all"}
+            value={searchParams.get("cobrado") ?? "0"}
           >
-            <option value="all">Todos</option>
-            <option value="dez">Dezembro</option>
-            <option value="nov">Novembro</option>
+            <option value="0">Todos</option>
+            <option value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
           </select>
         </div>
 
@@ -115,11 +138,21 @@ export const FiltersModal = ({ isOpen, handleClose }: Props) => {
             onChange={(e) => {
               handlePushQuery("pago-em", e.currentTarget.value)
             }}
-            value={searchParams.get("pago-em") ?? "all"}
+            value={searchParams.get("pago-em") ?? "0"}
           >
-            <option value="all">Todos</option>
-            <option value="dez">Dezembro</option>
-            <option value="nov">Novembro</option>
+            <option value="0">Todos</option>
+            <option value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
           </select>
         </div>
 
@@ -130,8 +163,9 @@ export const FiltersModal = ({ isOpen, handleClose }: Props) => {
             onChange={(e) => {
               handlePushQuery("status", e.currentTarget.value)
             }}
-            value={searchParams.get("status") ?? "all"}
+            value={searchParams.get("status") ?? "0"}
           >
+            <option value="0">Todos</option>
             <option value="1">Emitida</option>
             <option value="2">Cobrança realizada</option>
             <option value="3">Pagamento em atraso</option>
@@ -146,7 +180,7 @@ export const FiltersModal = ({ isOpen, handleClose }: Props) => {
             py-2  mt-auto 
             font-bold 
             "
-            onClick={clearQuerys}
+          onClick={clearQuerys}
         >
           LIMPAR
         </button>
@@ -157,7 +191,7 @@ export const FiltersModal = ({ isOpen, handleClose }: Props) => {
             py-2   
             font-bold 
             "
-            onClick={handleClose}
+          onClick={handleClose}
         >
           CONFIRMAR
         </button>

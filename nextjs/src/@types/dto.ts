@@ -17,14 +17,14 @@ export type Invoice = {
 }
 
 // /all-invoices
+
+export type InvoiceWithMonthSummary = {
+  month: string
+  totalInMonth: number
+  invoices: Invoice[]
+}
 export type ListOfInvoices = {
-  data:
-    | {
-        month: string
-        totalInMonth: number
-        invoices: Invoice[]
-      }[]
-    | undefined
+  data: InvoiceWithMonthSummary[] | undefined
 }
 
 // /year-summary
