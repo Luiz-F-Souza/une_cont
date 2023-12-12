@@ -1,4 +1,4 @@
-![Alt text](assets/logo.png)
+![Alt text](logo.png)
 
 # Desafio UneCont
 
@@ -17,12 +17,56 @@
 - Outros: Linux, Git, GitHub, Docker, noções de UI/UX
 
 ### Redes
+
 [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lf-souza98/)
 
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5522998906871)
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Luiz-F-Souza)
 
-***
+---
 
 ## Sobre o desafio
+
+Resolvi criar 02 versões para este desafio, a **Principal** e a **Secundária**.
+
+A versão **Principal** Segue todos os requisitos solicitados, utilizando apenas (`HTML`, `Bootstrap & CSS`, `Vanilla JS` + `ChartJS` como lib de gráficos).
+
+Já a versão **Secundária** foi desenvolvida em `Next JS` com `Typescript`. Esta foi feita como um extra :).
+
+Ambas versões usam uma pequena api que criei para servir os dados e ficar um pouco mais próxima da realidade (afinal, raramente vamos construir algo que não faça consultas a um api..).
+
+Tentei criar um visual um pouco mais moderno, inspirado no do banco inter, mas sei que tem muita coisa que daria para ser melhor.
+
+Existem algumas features que seriam interessantes adicionar a este projeto, mas que devido ao tempo deixei para uma próxima, como por exemplo:
+
+- Habilitar a pesquisa na search bar para filtrar por nome, status, mês e valor diretamente.
+- Informar ao usuário quais filtros estão sendo aplicados ao fechar o modal.
+- Adicionar paginação na listagem de notas
+- Adicionar Skeleton em todas partes dinâmicas
+- etc..
+
+### Repositórios:
+
+- **Principal**: https://github.com/Luiz-F-Souza/une_cont/tree/master/main
+- **Secundário**: https://github.com/Luiz-F-Souza/une_cont/tree/master/nextjs
+- **Mini API**: https://github.com/Luiz-F-Souza/une_cont/tree/master/api
+
+### Como rodar o projeto:
+
+Existem 02 versões disponíveis para serem executadas:
+
+- Versão principal (HTML, Bootstrap & CSS + Vanilla JS): `http://146.190.40.76/`
+- Versão Next.JS + Typescript: `https://unecont-desafio.vercel.app/dashboard`
+
+### OBS:
+
+O projeto principal está hospedado na digitalOcean, assim como a API.
+Já o projeto secundário está hospedado na vercel.
+Todos estão rodando no plano gratuíto, podem estar mais lentos que o normal.
+
+Não ativei o SSL para o projeto princial e para a api pois teria que comprar um domínio, se não me engano, em algumas requisições o IOS pode acabar barrando por ser http, mas imagino que nesse caso de agora não irá acontecer.
+
+### Recado final:
+
+Espero que curtam minha codagem e que eu tenha a oportunidade de integrar a equipe, tentei demostrar minha empolgação com a oportunidade fazendo o máximo que pude. Precisei relembrar um pouco de Bootstrap e vanilla JS, mas creio que tenha conseguido entregar algo bom e ressalto que estou sempre com garra para aprender, isso não me assusta.
