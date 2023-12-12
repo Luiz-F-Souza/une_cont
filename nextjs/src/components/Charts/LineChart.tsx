@@ -12,7 +12,7 @@ import {
   Legend,
 } from "chart.js"
 import { Line } from "react-chartjs-2"
-import { monthLabels } from "./utils/inex"
+
 
 ChartJS.register(
   CategoryScale,
@@ -31,7 +31,9 @@ type Props = {
     label: string
     data: number[]
     borderColor: string
-    backgroundColor: string
+    backgroundColor: string,
+    tension: number,
+    radius: number
   }[]
 }
 
@@ -57,7 +59,7 @@ export const LineChart = ({ labels, datasets }: Props) => {
       },
     },
   }
-
+  
   const data = {
     labels,
     datasets,

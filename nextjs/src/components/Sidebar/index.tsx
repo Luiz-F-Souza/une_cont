@@ -19,12 +19,14 @@ export const Sidebar = () => {
             !isMobileMenuOpen && "-left-full lg:left-0"
           )}
         >
-          <ul className="">
-            <li className="flex flex-col gap-2">
+          <ul className="flex flex-col gap-2">
+            <li >
               <SidebarMenuItem href="/dashboard">
                 <AiOutlineDashboard />
                 Dashboard
               </SidebarMenuItem>
+            </li>
+            <li>
               <SidebarMenuItem href="/notas-emitidas">
                 <LiaFileInvoiceDollarSolid />
                 Notas emitidas
