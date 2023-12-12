@@ -52,6 +52,10 @@ body{
         width: 0;
     }
 
+    .w-40{
+        width: 10rem;
+    }
+
     .w-80{
         width: 20rem ; /* 320px */
     }
@@ -90,6 +94,10 @@ body{
     }
     .left-0{
         left: 0;
+    }
+
+    .left-1\/2{
+        left: 50%;
     }
 
     .-left-full{
@@ -154,6 +162,10 @@ body{
     }
 
     /* UTILITIES */
+
+    .-translate-1\/2{
+        translate: -50%;
+    }
 
     .hidden{
         display: none;
