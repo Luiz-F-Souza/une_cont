@@ -56,8 +56,8 @@ Existem algumas features que seriam interessantes adicionar a este projeto, mas 
 
 Existem 02 versões disponíveis para serem executadas:
 
-- Versão principal (HTML, Bootstrap & CSS + Vanilla JS): `http://146.190.40.76/`
-- Versão Next.JS + Typescript: `https://unecont-desafio.vercel.app/dashboard`
+- Versão principal (HTML, Bootstrap & CSS + Vanilla JS): http://146.190.40.76/
+- Versão Next.JS + Typescript: https://unecont-desafio.vercel.app/dashboard
 
 Se desejar rodar localmente:
 
