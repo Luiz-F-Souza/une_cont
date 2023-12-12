@@ -8,7 +8,7 @@ import cors from '@fastify/cors'
 export const app = fastify()
 
 app.register(cors, {
-  origin: 'http://127.0.0.1:5500',
+  origin: "*",
   methods:  ['GET', 'PUT', 'POST', 'DELETE']
 })
 
