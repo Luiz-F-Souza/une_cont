@@ -1,55 +1,231 @@
 *, *::after, *::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0!important;
+    padding: 0!important;
+    box-sizing: border-box!important;
 }
+
+:root{
+    --brand-500: #ff8000;
+    --brand-200: #FF9804;
+
+    --text-color: rgb(31 41 55);
+
+    --green-400: rgb(74 222 128 );
+    --green-900: rgb(20 83 45 );
+
+    --yellow-400: rgb(250 204 21);
+    --yellow-900: rgb(113 63 18);
+
+    --gray-400: rgb(156 163 175);
+    --gray-900: rgb(17 24 39);
+
+    --red-400: rgb(248 113 113);
+    --red-900: rgb(127 29 29);
+}
+
 
 body{
-   min-height: 100vh;
-   overflow-x: hidden;
 
-   p{
-    margin-bottom: 0;
-   }
+    &,p,h1,h2,h3,h4,h5,h6,button,a{
+        font-family: 'Inter', sans-serif;
+        color: var(--text-color);
+    }
 
-   .container_sidebar{
-    max-width: 17.5rem;
-   }
+    li{
+        list-style: none!important;
+    }
 
-   .row, .col, .container-fluid, .row>*{
-    margin: 0;
-    padding: 0;
-   }
+    a{
+        text-decoration: none;
+    }
 
-   .h-screen{
-    height: 100vh;
-   }
-   .h-full{
-    height: 100%;
-   }
+    /* SPACING */
 
-   .w-1\/2{
-    width: 50%;
-   }
+    .py-20 {
+        padding-top: 5rem/* 80px */;
+        padding-bottom: 5rem/* 80px */;
+    }
 
-   .w-full{
-    width: 100%;
-   }
+    /* SIZES */
+
+    .w-0{
+        width: 0;
+    }
+
+    .w-80{
+        width: 20rem ; /* 320px */
+    }
+
+    .max-w-80{
+        max-width: 20rem ; /* 320px */
+    }
+
+    .w-full {
+        width: 100%;
+    }
+
+    .max-w-0{
+        max-width: 0;
+    }
+
+    .min-w-0{
+        min-width: 0;
+    }
+
+    .h-full{
+        height: 100%;
+    }
+
+    /* POSITIONING */
+
+    .fixed{
+        position: fixed;
+    }
+
+    .top-0{
+        top:0;
+    }
+    .bottom-0{
+        bottom: 0;
+    }
+    .left-0{
+        left: 0;
+    }
+
+    .-left-full{
+        left: -100%;
+    }
+  
+    .z-10 {
+        z-index: 10;
+    }
+
+    .overflow-hidden {
+        overflow: hidden;
+    }
+
+    /* COLORS */
+
+    .bg-brand-500{
+        background-color: var(--brand-500) ;
+    }
+
+    .bg-brand-200{
+        background-color: var(--brand-200) ;
+    }
+
+    .hover\:bg-brand-200:hover {
+        background-color:  var(--brand-200);
+    }
+
+    .bg-green-400{
+        background-color:  var(--green-400);
+    }
+    .bg-red-400{
+        background-color:  var(--red-400);
+    }
+    .bg-yellow-400{
+        background-color:  var(--yellow-400);
+    }
+    .bg-gray-400{
+        background-color:  var(--gray-400);
+    }
+
+    .text-green-900{
+        color:  var(--green-900);
+    }
+    .text-red-900{
+        color:  var(--red-900);
+    }
+    .text-yellow-900{
+        color:  var(--yellow-900);
+    }
+    .text-gray-900{
+        color:  var(--gray-900);
+    }
 
 
+    /* TRANSITIONS */
 
-   .text-sm{
-    font-size: small;
-   }
+    .transition-all {
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 1s;
+    }
 
-   .font-bold{
-    font-weight: bold;
-   }
+    /* UTILITIES */
+
+    .hidden{
+        display: none;
+    }
+
+    .rounded-full{
+        border-radius: 100%;
+    }
+
+    .rounded-md{
+        border-radius: 10px;
+    }
+
+    .cursor-pointer{
+        cursor: pointer;
+    }
+
+    .outline-0{
+        outline: 0;
+    }
+
+    /* FONTS */
+
+    .text-lg{
+       font-size: 1.125rem;
+    }
+    .text-sm{
+        font-size: .875rem;
+    }
+
+    .text-x-sm{
+        font-size: .75rem;
+    }
+
+    /* GRIDS AND FLEX */
+
+    .col-span-2 {
+        grid-column: span 2 / span 2;
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* LG BREAKING POINT */
+@media (min-width: 1024px) {
+
+    body{
+        .lg\:w-80 {
+            width: 20rem /* 320px */;
+        }
+
+        .lg\:max-w-80{
+            max-width: 20rem ; /* 320px */
+        }
+    
+        .lg\:hidden {
+            display: none;
+        }
+
+        .lg\:block {
+            display: block;
+        }
+
+        .lg\:left-0 {
+            left: 0;
+        }
+    }
+
 
 }
 
-#chart-defaulters-x-revenues{
-    width: 100%!important;
-    height: 400px!important;
-   
-}
+
