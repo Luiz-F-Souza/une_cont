@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UneCont</title>
+    <title>UneCont - Painel gerencial</title>
     <meta
       name="description"
       content="A UneCont automatiza todo o processo de escrituração e análise de retenção de impostos 
@@ -96,131 +96,200 @@
     <meta property="og:image:width" content="800" />
     <meta property="og:image:height" content="500" />
 
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- LOCAL STYLING -->
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- BOOTSTRAP -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
   </head>
 
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col container_sidebar ">
-          <div class="d-flex flex-column p-3 text-white bg-dark h-screen">
-            <!-- <a
-              href="/"
-              class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-            >
-              <svg class="bi me-2" width="40" height="32">
-                <use xlink:href="#bootstrap"></use>
-              </svg>
-              <span class="fs-4">Sidebar</span>
-            </a> -->
-            <!-- <hr /> -->
-
-            <ul class="nav nav-pills flex-column mb-auto">
-              <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
-                  <svg class="bi me-2" width="16" height="16">
-                    <use xlink:href="#home"></use>
-                  </svg>
-                  Dashboard
+        <!-- START OF SIDEBAR -->
+        <div class="col max-w-0 lg:max-w-80">
+          <aside
+            id="side-bar-container"
+            class="bg-brand-500 fixed z-10 bottom-0 top-0 -left-full lg:left-0 w-80 overflow-hidden py-20 transition-all"
+          >
+            <ul class="px-3 py-5 mt-5">
+              <li
+                class="d-flex align-items-center rounded-md bg-brand-200 hover:bg-brand-200 mb-3"
+              >
+                <a
+                  class="d-flex gap-2 text-dark w-full h-full p-2 cursor-pointer"
+                >
+                  <i class="bi bi-speedometer2"></i>
+                  <p>Dashboard</p>
                 </a>
               </li>
-              <li>
-                <a href="notas-emitidas.html" class="nav-link text-white">
-                  <svg class="bi me-2" width="16" height="16">
-                    <use xlink:href="#speedometer2"></use>
-                  </svg>
-                  Notas emitidas
+              <li
+                class="d-flex align-items-center rounded-md hover:bg-brand-200"
+              >
+                <a
+                  href="/notas-emitidas.html"
+                  class="d-flex gap-2 text-dark w-full h-full p-2 cursor-pointer"
+                >
+                  <i class="bi bi-receipt-cutoff"></i>
+                  <p>Notas emitidas</p>
                 </a>
               </li>
             </ul>
-            <hr />
-            <div>
-              <p class="text-sm text-center">
-                Em caso de dũvidas, entre em contato
-                <a
-                  href="https://www.linkedin.com/in/lf-souza98/"
-                  target="_blank"
-                >
-                  clicando aqui
-                </a>
-              </p>
-            </div>
-          </div>
+          </aside>
         </div>
+        <!-- END OF SIDEBAR -->
 
-        <div class="col container-fluid">
-          <div class="row">
-            <nav class="navbar navbar-light bg-light">
-              <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+        <!-- START OF MENU AND CONTENT -->
+        <div class="col">
+          <!-- START OF NAVBAR -->
+          <nav class="navbar bg-white shadow-sm p-3 d-flex">
+            <button
+              id="toggle-nav-bar-button"
+              class="navbar-toggler border-0 lg:hidden z-10"
+            >
+              <h2 class="bs bi-list"></h2>
+            </button>
+            <ul
+              class="d-flex align-items-center justify-content-between flex-grow-1"
+            >
+              <li>
+                <a
+                  class="navbar-brand fw-bold d-flex align-items-center fs-6"
+                  href="/"
+                >
                   <img
                     src="assets/logo_no_bg.png"
                     alt=""
-                    width="30"
-                    height="24"
+                    width="50"
+                    height="30"
                     class="d-inline-block align-text-top"
                   />
                   UneCont
                 </a>
+              </li>
+
+              <li class="d-flex gap-2">
+                <img
+                  src="/assets/profile.jpeg"
+                  alt="foto de perfil"
+                  class="img-fluid avatar-md rounded-circle"
+                  width="48"
+                  height="48"
+                />
+
+                <div>
+                  <p class="fw-bold text-sm mt-1">Luiz Felipe</p>
+                  <p class="text-x-sm text-muted">Super admin</p>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <!-- END OF NAVBAR -->
+
+          <!-- START OF MAIN CONTENT -->
+          <main class="p-3">
+            <!-- START OF TOP CARDS -->
+            <div class="d-sm-grid d-flex flex-column grid-cols-3 gap-2">
+              <div class="">
+                <div class="card h-100">
+                  <div class="card-body p-3">
+                    <h5 class="card-title fw-bold text-sm">
+                      Faturamento total
+                    </h5>
+                    <p id="totalRevenue" class="card-text text-lg">R$ 0,00</p>
+                  </div>
+                </div>
               </div>
-            </nav>
-          </div>
+              <div class="col-span-2">
+                <div class="card h-100">
+                  <div class="card-body p-3">
+                    <h5 class="card-title fw-bold text-sm">
+                      Pagamentos Confirmados
+                    </h5>
+                    <p id="confirmedPayments" class="card-text text-lg">
+                      R$ 0,00
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="card h-100">
+                  <div class="card-body p-3">
+                    <h5 class="card-title fw-bold text-sm">Projeção Futura</h5>
+                    <p id="futureProjection" class="card-text text-lg">
+                      R$ 0,00
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="card h-100">
+                  <div class="card-body p-3">
+                    <h5 class="card-title fw-bold text-sm">
+                      Cobranças Pendentes
+                    </h5>
+                    <p id="pendingCharges" class="card-text text-lg">R$ 0,00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="card h-100">
+                  <div class="card-body p-3">
+                    <h5 class="card-title fw-bold text-sm">Inadimplência</h5>
+                    <p id="defaulters" class="card-text text-lg">R$ 0,00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END OF TOP CARDS -->
 
-          <div class="row gap-4 px-4 pt-4">
-            <div class="col  ">
-              <div class="card text-white bg-secondary w-full">
-                <h4 class="card-header">Receita</h4>
-                <div class="card-body d-flex gap-5 ">
-                  <div>
-                    <div>
-                      <p class="font-bold">Faturamento</p>
-                      <p class="card-text text-sm">R$2300.00</p>
-                    </div>
-
-                    <div>
-                      <p class="font-bold">Cobrança Pendente</p>
-                      <p class="card-text text-sm">R$3300.00</p>
+            <!-- START OF GRAPHS -->
+            <div class="mt-5">
+              <div class="d-lg-flex gap-2">
+                <div class="w-full mb-4 mb-lg-0">
+                  <div class="card h-100">
+                    <div class="card-body p-3">
+                      <h5 class="card-title fw-bold fs-6 text-center">
+                        Receitas
+                      </h5>
+                      <canvas id="revenues-graph"></canvas>
                     </div>
                   </div>
-
-                  <div>
-                    <div>
-                      <p class="font-bold">Inadimplência</p>
-                      <p class="card-text text-sm">R$53300.00</p>
-                    </div>
-
-                    <div>
-                      <p class="font-bold">A Receber</p>
-                      <p class="card-text text-sm">R$53300.00</p>
+                </div>
+                <div class="w-full mb-4 mb-lg-0">
+                  <div class="card h-100">
+                    <div class="card-body p-3">
+                      <h5 class="card-title fw-bold fs-6 text-center">
+                        Inadimplências
+                      </h5>
+                      <canvas id="defaulters-graph"></canvas>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div class="col ">
-              <div class="card text-white bg-secondary h-full w-full">
-                <h4 class="card-header">Despesas</h4>
-                <div class="card-body">
-                  <div>
-                    <p class="">Pagamentos</p>
-                    <p class="card-text">R$2300.00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row w-full px-4">
-            <canvas id="chart-defaulters-x-revenues" ></canvas>
-          </div>
+            <!-- END OF GRAPHS -->
+          </main>
+          <!-- END OF MAIN CONTENT -->
         </div>
+        <!-- END OF MENU AND CONTENT -->
       </div>
     </div>
 
@@ -229,7 +298,7 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <script type="module" src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="js/home/index.js"></script>
   </body>
 </html>
