@@ -59,6 +59,32 @@ Existem 02 versões disponíveis para serem executadas:
 - Versão principal (HTML, Bootstrap & CSS + Vanilla JS): `http://146.190.40.76/`
 - Versão Next.JS + Typescript: `https://unecont-desafio.vercel.app/dashboard`
 
+Se desejar rodar localmente:
+
+- clone o repositório: `git clone git@github.com:Luiz-F-Souza/une_cont.git`
+- abra a pasta `main` no `vscode` (com a extensão liveServer)
+- abra o arquivo `index.html` e pressione o ícone `Go Live` no canto inferior esquerdo da tela.
+
+- Se desejar rodar o arquivo em nextjs basta abrir a pasta `nextjs`
+- Abrir no vscode
+- No terminal digite `npm i` e aguarde
+- digite `npm run dev`
+
+- Se desejar rodar a api basta abrir a pasta `api`
+- Crie um arquivo chamado `.env` na raiz contendo
+
+```
+    NODE_ENV=dev
+    PORT=8888
+    DATABASE_URL="postgresql://admin:admin@localhost:5432/une_cont?schema=public"
+```
+
+- Digitar `npm i` e aguradar
+- Digitar `docker compose up --build` em um terminal
+- Abrir outra janela de terminal (canto superir direito das abas de terminal)
+- Digitar `prisma migrate dev` e aguardar
+- Digitar `npm run dev` e usar com a rota `http://localhost:8888` (pode adicionar `/all-invoices` ou `/year-summary` ao final)
+
 ### OBS:
 
 O projeto principal está hospedado na digitalOcean, assim como a API.
