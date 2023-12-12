@@ -3,12 +3,10 @@
 import { useState } from "react"
 import { CiFilter } from "react-icons/ci"
 import { FiltersModal } from "./FiltersModal"
-import { useLockBodyScroll } from "@/hooks/useLockBodyScroll"
 
 export const Filters = () => {
   const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false)
 
-  useLockBodyScroll(isFiltersModalOpen)
   return (
     <>
       <div
