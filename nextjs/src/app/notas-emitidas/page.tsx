@@ -1,10 +1,15 @@
 import { IoIosSearch } from "react-icons/io"
-import { InvoiceCard } from "./(components)/Cards/InvoiceCard"
+import { InvoiceCard } from "./(components)/(Cards)/InvoiceCard"
 import { CurrencyText } from "@/components/CurrencyText"
-import { Filters } from "./(components)/Filters"
+import { Filters } from "./(components)/(Filters)"
 import { captalize } from "@/utils/captalize"
 import { getListOfInvoices } from "@/apiCalls/invoices"
-import { checkIfHasFilter, checkNestedMonthItems, checkNestedYear } from "./utils/filters"
+import {
+  checkIfHasFilter,
+  checkNestedMonthItems,
+  checkNestedYear,
+} from "./(utils)/filters"
+import { listOfMonths } from "./(utils)/LIST_OF_MONTHS"
 
 type Props = {
   searchParams: {
@@ -15,21 +20,6 @@ type Props = {
     status: string
   }
 }
-
-export const listOfMonths = [
-  "janeiro",
-  "fevereiro",
-  "março",
-  "abril",
-  "maio",
-  "junho",
-  "julho",
-  "agosto",
-  "setembro",
-  "outubro",
-  "novembro",
-  "dezembro",
-]
 
 export default async function InvoicesPage({ searchParams }: Props) {
   const { listOfInvoices } = await getListOfInvoices()
@@ -72,8 +62,9 @@ export default async function InvoicesPage({ searchParams }: Props) {
     }
 
     // YEAR
-    const { hasFilterActive: hasYearFilter } =
-      checkIfHasFilter(searchParams.ano)
+    const { hasFilterActive: hasYearFilter } = checkIfHasFilter(
+      searchParams.ano
+    )
 
     if (hasYearFilter) {
       const paidAtFilterResult = checkNestedYear({
@@ -107,6 +98,9 @@ export default async function InvoicesPage({ searchParams }: Props) {
 
     return true
   })
+
+  const hasFilteredItems =
+    filteredListOfInvoices && filteredListOfInvoices.length > 0
 
   return (
     <section className="px-4 py-8 text-gray-800">
@@ -142,6 +136,16 @@ export default async function InvoicesPage({ searchParams }: Props) {
             </section>
           )
         })}
+
+        {!hasFilteredItems && (
+          <div className="text-center mt-5 py-5 border rounded">
+            <h4 className="font-bold">Não há resultados. </h4>
+            <p>
+              Infelizmente sua consulta não retornou nenhum dado. Tente mudar os
+              filtros {":)"}
+            </p>
+          </div>
+        )}
       </article>
     </section>
   )
