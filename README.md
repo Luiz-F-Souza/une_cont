@@ -56,7 +56,7 @@ Existem algumas features que seriam interessantes adicionar a este projeto, mas 
 
 Existem 02 versões disponíveis para serem executadas:
 
-- Versão principal (HTML, Bootstrap & CSS + Vanilla JS): http://146.190.40.76/
+- Versão principal (HTML, Bootstrap & CSS + Vanilla JS): https://une-cont-main.vercel.app/
 - Versão Next.JS + Typescript: https://unecont-desafio.vercel.app/dashboard
 
 Se desejar rodar localmente:
@@ -87,8 +87,8 @@ Se desejar rodar localmente:
 
 ### OBS:
 
-O projeto principal está hospedado na digitalOcean, assim como a API.
-Já o projeto secundário está hospedado na vercel.
+O projeto principal está hospedado na vercel, assim como o projeto secundário.
+Já a mini API está hospedada na DigitalOcean.
 Todos estão rodando no plano gratuíto, podem estar mais lentos que o normal.
 
 Não ativei o SSL para o projeto princial e para a api pois teria que comprar um domínio, se não me engano, em algumas requisições o IOS pode acabar barrando por ser http, mas imagino que nesse caso de agora não irá acontecer.
